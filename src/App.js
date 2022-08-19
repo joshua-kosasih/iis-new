@@ -12,6 +12,8 @@ import Consulting from './components/pages/Consulting';
 import Footer from './components/Footer';
 
 function App() {
+  
+
   return (
     <Router>
       <Navbar />

@@ -9,12 +9,16 @@
 }
 
 .navbar-logo {
-  color: #fff;
+  color: transparent;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
+  background-image: url('./../images/IPEKA-01.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .fa-firstdraft {
@@ -40,7 +44,7 @@
 }
 
 .nav-links {
-  color: white;
+  color: black;
   text-decoration: none;
   padding: 0.5rem 1rem;
 }

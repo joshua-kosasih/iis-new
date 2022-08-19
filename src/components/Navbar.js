@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Button } from './Button';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import Dropdown from './Dropdown';
+import React, { useState } from "react";
+import { Button } from "./Button";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import Dropdown from "./Dropdown";
+// import LogoutButton from "./Logout";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -10,6 +11,8 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  
+  // let token = localStorage.getItem("token");
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -27,65 +30,52 @@ function Navbar() {
     }
   };
 
+  // const auth = localStorage.getItem("user");
+
   return (
     <>
-      <nav className='navbar'>
-        <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-          {/* <img src="./../../public/ipeka.svg" width="30" height="30" alt=""/> */}
+      <nav className="navbar">
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          {" "}
           ipeka
-          {/* <i class='fab fa-firstdraft' /> */}
         </Link>
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+
+        <div className="menu-icon" onClick={handleClick}>
+          <i className={click ? "fas fa-times" : "fas fa-bars"} />
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
               Home
             </Link>
           </li>
           <li
-            className='nav-item'
+            className="nav-item"
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/services'
-              className='nav-links'
+              to="/services"
+              className="nav-links"
               onClick={closeMobileMenu}
             >
-              Locations <i className='fas fa-caret-down' />
+              Locations <i className="fas fa-caret-down" />
             </Link>
             {dropdown && <Dropdown />}
           </li>
-          {/* <li className='nav-item'>
-            <Link
-              to='/products'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              Academic
+          <Link
+            to="/sign-up"
+            className="nav-links-mobile"
+            onClick={closeMobileMenu}
+          >
+            Sign In
+          </Link>
+          
+          {/* <li className="nav-item">
+            <Link to="#" className="nav-links" onClick={closeMobileMenu}>
+              { {`${username}`} }
             </Link>
           </li> */}
-          {/* <li className='nav-item'>
-            <Link
-              to='/contact-us'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
-              About Us
-            </Link>
-          </li> */}
-          <li>
-            <Link
-              to='/sign-up'
-              className='nav-links-mobile'
-              onClick={closeMobileMenu}
-            >
-              Sign In
-            </Link>
-          </li>
         </ul>
         <Button />
       </nav>
